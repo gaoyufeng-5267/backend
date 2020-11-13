@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: secret
+    hikari:
+#      leakDetectionThreshold: 5000
+      connection-test-query: SELECT 1
+      maximum-pool-size: ${db.pool-size:5}
+      minimum-idle: ${db.min-idle:2}
+  jpa:
+    open-in-view: false
+    show-sql: true
+
+    hibernate.ddl-auto: none
+#    hibernate.ddl-auto: none
+#    none
+#    何もしません
+#    validate
+#    検証をします。 でもデータベースには変更を加えません。
+#    update
+#    アプリケーション起動時に、Entityに対応するテーブルがなければ作成します。
+#    create
+#    アプリケーション作成時に、Entityに対応するテーブルがなければ作成します。 もしあれば、 データを削除します。
+#    create-drop
+#    アプリケーション作成時に、Entityに対応するテーブルがなければ作成します。 セッション終了時にスキーマを削除します。
+    properties.hibernate:
+      jdbc.lob.non_contextual_creation: true
+  data.redis.repositories.enabled: false
+logging.level.org.hibernate.SQL: debug

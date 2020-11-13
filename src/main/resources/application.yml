@@ -1,0 +1,6 @@
+server:
+  port: 8000
+spring:
+  profiles.include: infra,db
+  kafka.template.default-topic: ExternalFeed
+management.health.redis.enabled: false

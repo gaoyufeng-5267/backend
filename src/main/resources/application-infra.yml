@@ -1,0 +1,36 @@
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    generator:
+      write_bigdecimal_as_plain: true
+    defaultPropertyInclusion: non_empty
+    time-zone: Asia/Tokyo
+  kafka:
+#    bootstrap-servers: ec2-3-112-130-107.ap-northeast-1.compute.amazonaws.com:9092
+    bootstrap-servers: localhost:9092
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  redis:
+#    host: ec2-3-112-130-107.ap-northeast-1.compute.amazonaws.com
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+management:
+  endpoints:
+    web:
+      base-path: /keepalive
+      exposure.include: ["health", "info", "loggers", "prometheus"]
+  metrics.distribution:
+    percentiles-histogram.http.server.requests: true
+    sla.http.server.requests: 100ms, 400ms, 500ms, 2000ms
+    percentiles.http.server.requests: 0.5, 0.9, 0.95, 0.99, 0.999
+security:
+  jwt.key-uri: ${auth-server:http://192.168.180.56:9999/uaa}/oauth/token_key
+  jwt.key-value: |
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzsnf1g9MUTPANcJWNz2KXF+fSAHZ9QT3uQxeQBn4hlZbQtP2qT5xuuNACcqPXltCCd0
+    jn1IE3ySk4aXFlxng0bECPIi3zvhG38U/smcDwupViQ2AJdHeEYZyJf+1VtOlM4wmCT2MjMjYN9bC3oru6YyM55LM/PMr51KTadmrCGaEAAMn1K
+    3ywCDdKy1YhBDcSwpC5ckfCYc0vbPY6aspIsRV+I6N0xrVEKJqmlaTkci+v/ISVqHumiXAtEHZxCg2Tq+PEfo+Z8l/bMACteHBqtTHpdEkGu+ZQ
+    Hj95mbP0RxsleTTxizd1NzibCnJDf44RKOQBWbQsxmXfjSZ3YMlKQIDAQAB
+    -----END PUBLIC KEY-----

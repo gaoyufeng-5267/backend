@@ -1,6 +1,15 @@
+login.timeout: PT24H
 server:
   port: 8000
 spring:
   profiles.include: infra,db
   kafka.template.default-topic: ExternalFeed
+
+keyStore:
+  password: 2zoGgwU.WN3b6pRm
+  alias: demo
+
+client:
+  accessTokenValiditySeconds: 0
+
 management.health.redis.enabled: false

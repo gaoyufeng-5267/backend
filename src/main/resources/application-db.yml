@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+
+    url: jdbc:postgresql://database-1.cjrkfow6klcg.ap-northeast-1.rds.amazonaws.com:5432/weget
     username: postgres
-    password: secret
+    password: password
     hikari:
 #      leakDetectionThreshold: 5000
       connection-test-query: SELECT 1

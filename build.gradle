@@ -54,6 +54,8 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-configuration-processor"
 
     implementation "javax.xml.bind:jaxb-api:2.3.0"
+    implementation "javax.activation:activation:1.1"
+    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.0"
     implementation "javax.activation:javax.activation-api:1.2.0"
 
     // use lombok

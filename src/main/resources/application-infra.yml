@@ -7,13 +7,13 @@ spring:
     defaultPropertyInclusion: non_empty
     time-zone: Asia/Tokyo
   kafka:
-#    bootstrap-servers: ec2-3-112-130-107.ap-northeast-1.compute.amazonaws.com:9092
-    bootstrap-servers: localhost:9092
+    #    bootstrap-servers: ec2-3-112-130-107.ap-northeast-1.compute.amazonaws.com:9092
+    bootstrap-servers: 54.150.20.3:9093
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   redis:
-#    host: ec2-3-112-130-107.ap-northeast-1.compute.amazonaws.com
-    host: 127.0.0.1
+    #    host: ec2-3-112-130-107.ap-northeast-1.compute.amazonaws.com
+    host: 54.150.20.3
     port: 6379
     database: 0
 management:

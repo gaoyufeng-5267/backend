@@ -23,6 +23,7 @@ import org.springframework.util.StringUtils;
 
 import java.io.Serializable;
 import java.time.Duration;
+import java.util.List;
 import java.util.Map;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
@@ -178,6 +179,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+        Members activateUserByAccountId = getActivateUserByEmailNoError(username);
+        AuthUserDetails AuthUserDetails = new AuthUserDetails(activateUserByAccountId);
+        return AuthUserDetails;
     }
 }
